@@ -20,6 +20,7 @@ def remake_path(path):
         else:
             i+=1
     return new_path
+
 def create_grid(data, drone_altitude, safety_distance):
     """
     Returns a grid representation of a 2D configuration space
