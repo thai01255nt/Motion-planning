@@ -1,4 +1,6 @@
 ## Project: 3D Motion Planning
+
+### Sorry about my mistake, i have written section `Explain the Starter Code` in below. ###
 ![Quad Image](./misc/enroute.png)
 
 ---
@@ -46,10 +48,30 @@ You're reading it! Below I describe how I addressed each rubric point and where 
 ### Explain the Starter Code
 
 #### 1. Explain the functionality of what's provided in `motion_planning.py` and `planning_utils.py`
-These scripts contain a basic planning implementation that includes...
 
-And here's a lovely image of my results (ok this image has nothing to do with it, but it's a nice example of how to include images in your writeup!)
-![Top Down View](./misc/high_up.png)
+##### Motion planning #####
+
+It's same with project 1. I just modify follow requirements of this project. almost changing are in function plan_path. I described detail it in section `Implementing Your Path Planning Algorithm`.
+
+Get home position. It is in frist line of colliders file -> set home position -> get global position -> convert global position become local_position.
+
+-> Load all obstacles from file -> creat grid map and extract north_min (north_offset in code) and east_min (east_offset in code) (origin of the coordinates axis of grid map) -> from local_position and (north_min,east_min) i compute and set grid_start (current grid of drone).
+
+-> set grid_goal -> grid map, grid_start, grid_goal, use `a_start` function to find path from grid_start to grid_goal. -> you `remake_path` in `planning_utils.py` to and remove unecessary points.
+-> convert waypoints in grid map to global position (adding north_min `north_offset in code` and east_offset_min `east_offset in code`).
+##### Planning utils #####
+
+From original file of clone github, i added 3 function `check_collinear`, `p`, `remake_path`.
+- `check_collinear` i use it to check whether consecutive 3 points in a straight line. I computed det. If it is approximately 0, this function will return True and vice versa.
+- `p` convert a point in 2D to vector 3D.
+- `remake_path` use `p` and `check_collinear` to check straight lines, and then remove point in middle.
+
+- `create_grid` function, creat grid map from colliders file. (posX,posY,posZ) columns of colliders file are central point of obstacle. Remain columns are size of obstacle around central point. I have an adding safety_distance, and then set origin coordinates (0,0) is minimum of north coordinates and east coordinates.
+
+- `Action` and `valid_actions` I added more direction to help path become more smooth.
+- `a_star` functtion, i just use basic algorithm, so i hadn't any changing.
+- `heuristic`, the cost, use in a_star function, is distance between current position and goal position. (norm)
+
 
 Here's | A | Snappy | Table
 --- | --- | --- | ---
