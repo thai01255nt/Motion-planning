@@ -58,7 +58,7 @@ Get home position. It is in frist line of colliders file -> set home position ->
 -> Load all obstacles from file -> creat grid map and extract north_min (north_offset in code) and east_min (east_offset in code) (origin of the coordinates axis of grid map) -> from local_position and (north_min,east_min) i compute and set grid_start (current grid of drone).
 
 -> set grid_goal -> grid map, grid_start, grid_goal, use `a_start` function to find path from grid_start to grid_goal. -> you `remake_path` in `planning_utils.py` to and remove unecessary points.
--> convert waypoints in grid map to global position (adding north_min `(north_offset in code)` and east_offset_min `(east_offset in code)`).
+-> convert waypoints in grid map to global position (adding north_min `(north_offset in code)` and east_min `(east_offset in code)`).
 ##### Planning utils #####
 
 From original file of clone github, i added 3 function `check_collinear`, `p`, `remake_path`.
