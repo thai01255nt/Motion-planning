@@ -66,11 +66,11 @@ From original file of clone github, i added 3 function `check_collinear`, `p`, `
 - `p` convert a point in 2D to vector 3D.
 - `remake_path` use `p` and `check_collinear` to check straight lines, and then remove point in middle.
 
-- `create_grid` function, creat grid map from colliders file. (posX,posY,posZ) columns of colliders file are central point of obstacle. Remain columns are size of obstacle around central point. I have an adding safety_distance, and then set origin coordinates (0,0) is minimum of north coordinates and east coordinates.
+- `create_grid` function creat grid map from colliders file. `(posX,posY,posZ)` of colliders file are central point of obstacles. Remain columns are size of obstacles around central point. I have an adding safety_distance, and then set origin coordinates (0,0) is minimum of north coordinates and east coordinates.
 
-- `Action` and `valid_actions` I added more direction to help path become more smooth.
+- `Action` and `valid_actions`. I added more direction to help path become more smooth.
 - `a_star` functtion, i just use basic algorithm, so i hadn't any changing.
-- `heuristic`, the cost, use in a_star function, is distance between current position and goal position. (norm)
+- `heuristic`  The cost, use in a_star function, is distance between current position and goal position. (norm)
 
 
 Here's | A | Snappy | Table
